@@ -1,0 +1,54 @@
+﻿@model List<Portfolio>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+@section SEO
+{
+    <meta name="keywords" content="index,my index" />
+}
+
+<section id="one">
+    <header class="major">
+        <h2>
+            @ViewData["headingTitle"]
+        </h2>
+    </header>
+    <p>
+        @ViewBag.headingText
+    </p>
+</section>
+
+<section id="two">
+    <h2>نمونه کارهای اخیر</h2>
+    <div class="row">
+
+        @foreach (var portfolio in Model)
+        {
+            <article class="6u 12u$(xsmall) work-item" style="width: 33%;">
+                <a href="~/images/thumbs/@portfolio.Image" class="image fit thumb" alt="@portfolio.Title" title="@portfolio.Description">
+                    <img src="~/images/thumbs/@portfolio.Image" alt="@portfolio.Title" title="@portfolio.Description" />
+                </a>
+                <h3>@portfolio.Title</h3>
+                <p>@portfolio.Description</p>
+            </article>
+        }
+
+    </div>
+</section>
+
+<section id="Three">
+    <header class="major">
+        <h2>
+            @ViewData["headingTitle"]
+        </h2>
+    </header>
+    <p>
+        @ViewBag.headingText
+    </p>
+</section>
